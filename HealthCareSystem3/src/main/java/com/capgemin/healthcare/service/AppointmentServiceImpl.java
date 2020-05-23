@@ -75,20 +75,6 @@ public  class AppointmentServiceImpl implements AppointmentService
 	}
 	
 	
-	/***************************************************************************************************
-	 * Method       deleteAppointment
-	 * Description   To implement the method which delete the particular appointment
-	 * 
-	 * Created By    Shreyanka Agarwal
-	 * Created Date   10-MAY-2020
-     ****************************************************************************************************/
-	
-	
-	  @Override public void deleteAppointment(int AppointmentId)
-	  {
-	  appointmentDao.deleteById(AppointmentId); // TODO Auto-generated method stub
-	  
-	  }
 	  
 	  /***************************************************************************************************
 	 * Method       getAllCenters
