@@ -29,18 +29,39 @@ public class AppointmentController {
 	@Autowired
 	private AppointmentService appointmentService;
 	
-	
+	/***************************************************************************************************
+	 * Method       getAllCenters
+	 * Description  To get all the centers inserted in the database
+	 *
+	 * Created By    Shreyanka Agarwal
+	 * Created Date   09-MAY-2020
+	 *****************************************************************************************************/
 	@GetMapping("/centers")
 	public ResponseEntity<List<DiagnosticCenter>> getAllCenters()
 	{
 		return new ResponseEntity<List<DiagnosticCenter>>(appointmentService.getAllCenters(),HttpStatus.OK);
 	}
+	/***************************************************************************************************
+	 * Method       getAllTests
+	 * Description  To get all the tests inserted in the database
+	 *
+	 * Created By    Shreyanka Agarwal
+	 * Created Date   09-MAY-2020
+	 *****************************************************************************************************/
 
 	@GetMapping("/tests")
 	public ResponseEntity<List<Test>> getAllTests()
 	{
 		return new ResponseEntity<List<Test>>(appointmentService.getAllTests(),HttpStatus.OK);
 	}
+	
+	/***************************************************************************************************
+	 * Method       approveAppointment
+	 * Description  To approve the appointments 
+	 * 
+	 * Created By    Shreyanka Agarwal
+	 * Created Date   09-MAY-2020
+	 *****************************************************************************************************/
 
 	@PutMapping("/approve")
 	public ResponseEntity<String> approveAppointment(@RequestBody Integer appId)throws AppointmentException
@@ -97,28 +118,7 @@ public class AppointmentController {
 	}
 	
 	
-	/***************************************************************************************************
-	 * Method       deleteAppointment
-	 * Description  To delete the appointments given by particular id
-	 * @throws AppointmentException- It is raised if the particular id which is to be deleted does not 
-	 *                                exist in database
-	 * Created By    Shreyanka Agarwal
-	 * Created Date   09-MAY-2020
-	 *****************************************************************************************************/
 	
-	
-	  @DeleteMapping("/deleteAppointment/{id}")
-	   public ResponseEntity<String>deleteAppointment(@PathVariable int testId) throws AppointmentException
-	  { 
-		  try { 
-			  appointmentService.deleteAppointment(testId);
-	  return new ResponseEntity<String>("Test deleted",HttpStatus.OK);
-	  }
-	  catch(Exception ex) { 
-		  
-		  throw new AppointmentException("Appointmnet Id is not exists");
-		  }
-		  }
 	  
 	 
 
