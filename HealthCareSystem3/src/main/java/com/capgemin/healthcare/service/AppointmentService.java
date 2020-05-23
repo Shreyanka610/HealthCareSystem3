@@ -23,9 +23,7 @@ public interface AppointmentService
 {
 	  List<Appointment> showallappointment();
 	  
-	  Appointment saveAppointment(AppointmentDto appointment)throws AppointmentException;
-	  
-	  void deleteAppointment(int appointmentId);
+	  Appointment saveAppointment(AppointmentDto appointment)throws AppointmentException
 
 	List<DiagnosticCenter> getAllCenters();
 	List<Test> getAllTests();
