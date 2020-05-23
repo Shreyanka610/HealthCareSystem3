@@ -123,7 +123,7 @@ public  class AppointmentServiceImpl implements AppointmentService
 	
 	 /***************************************************************************************************
 	 * Method       approveAppointment
-	 * Description  
+	 * Description  To approve the appointment
 	 * 
 	 * Created By    Shreyanka Agarwal
 	 * Created Date   10-MAY-2020
