@@ -20,7 +20,7 @@ public class DiagnosticCenter {
 	@SequenceGenerator(name = "centerId_generator", initialValue = 1001, allocationSize = 1)
 	private Integer centerId;
 
-	@Column(name="center_name",length=25)
+	@Column(name="center_name", length=100)
 	private String centerName;
 
 	@OneToMany(cascade = CascadeType.ALL, targetEntity = Test.class)

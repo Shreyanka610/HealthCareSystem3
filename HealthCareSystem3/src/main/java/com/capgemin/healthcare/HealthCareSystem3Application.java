@@ -12,7 +12,6 @@ import com.capgemin.healthcare.entity.DiagnosticCenter;
 import com.capgemin.healthcare.entity.Test;
 import com.capgemin.healthcare.entity.Users;
 
-
 @SpringBootApplication
 public class HealthCareSystem3Application implements CommandLineRunner
 {
@@ -30,20 +29,33 @@ private DiagnosticCenterDao DiagnosticCenterDao;
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		Users user1 =new Users("1234","shreyanka","123456","user","emailid@com");
-		Users user2 =new Users("8523","agarwal","123456","user","emailid@com");
+		Users user1 =new Users("1234","shreyanka","9886622852","user","shreyanka@gmail.com");
+		Users user2 =new Users("8523","Agarwal","9900118464","user","agarwal@gmail.com");
 		userDao.save(user1);
 		userDao.save(user2);
 		
-		Test test1=new Test("JHANSI");
-		Test test2=new Test("Sugar Test");
+		Test test1=new Test("Kidney function test");
+		Test test2=new Test("Liver function test");
+		Test test3=new Test("Thyroid function test");
+		Test test4=new Test("Pulmonary function test");
+		Test test5=new Test("Ultrasonography");
+		
 		testDao.save(test1);
 		testDao.save(test2);
+		testDao.save(test3);
+		testDao.save(test4);
+		testDao.save(test5);
 		
-		DiagnosticCenter center1=new DiagnosticCenter("Agra");
-		DiagnosticCenter center2=new DiagnosticCenter("Jhansi");
+		DiagnosticCenter center1=new DiagnosticCenter("Apallo Diagnostic Center");
+		DiagnosticCenter center2=new DiagnosticCenter("DR LAL PATHLABS");
+		DiagnosticCenter center3=new DiagnosticCenter("THYROCARE Diagnostic Center");
+		DiagnosticCenter center4=new DiagnosticCenter("MedPlus Diagnostic Center");
+		DiagnosticCenter center5=new DiagnosticCenter("SAGAR Diagnostic Center");
 		DiagnosticCenterDao.save(center1);
 		DiagnosticCenterDao.save(center2);
+		DiagnosticCenterDao.save(center3);
+		DiagnosticCenterDao.save(center4);
+		DiagnosticCenterDao.save(center5);
 		
 
 }

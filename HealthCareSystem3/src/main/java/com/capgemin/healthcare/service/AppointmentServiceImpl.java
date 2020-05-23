@@ -18,6 +18,7 @@ import com.capgemin.healthcare.entity.Appointment;
 import com.capgemin.healthcare.entity.DiagnosticCenter;
 import com.capgemin.healthcare.entity.Test;
 import com.capgemin.healthcare.entity.Users;
+import com.capgemini.healthcare.exception.AppointmentException;
 @Transactional
 @Service
 public  class AppointmentServiceImpl implements AppointmentService 
@@ -42,13 +43,19 @@ public  class AppointmentServiceImpl implements AppointmentService
 	 *****************************************************************************************************/
 	
 	@Override
-	public Appointment saveAppointment(AppointmentDto appointmentDto) 
+	public Appointment saveAppointment(AppointmentDto appointmentDto) throws AppointmentException
 	{	
 			Optional<Users> user=usersDao.findById(appointmentDto.getUserId());
+			if(user==null)throw new  AppointmentException("User does not exists.");
+			
 			Optional<DiagnosticCenter> diagnosticCenter=diagnosticCenterDao.findById(appointmentDto.getCenterId());
+			if(diagnosticCenter==null)throw new  AppointmentException("Center does not exists.");
+			
 			Optional<Test> test=testDao.findById(appointmentDto.getTestId());
+			if(test==null)throw new  AppointmentException("Test does not exists.");
+			
 			Appointment appointment=new Appointment(appointmentDto.getAppointmentDate(), false, user.get(), diagnosticCenter.get(), test.get());
-			return appointmentDao.save(appointment);	
+			return appointmentDao.save(appointment);	 
 	}
 	
 	
@@ -82,7 +89,33 @@ public  class AppointmentServiceImpl implements AppointmentService
 	  appointmentDao.deleteById(AppointmentId); // TODO Auto-generated method stub
 	  
 	  }
-	 
+
+
+	@Override
+	public List<DiagnosticCenter> getAllCenters() {
+		// TODO Auto-generated method stub
+		return diagnosticCenterDao.findAll();
+	}
+	
+	@Override
+	public List<Test> getAllTests() {
+		// TODO Auto-generated method stub
+		return testDao.findAll();
+	}
+
+
+	@Override
+	public String approveAppointment(Integer appId)throws AppointmentException {
+		// TODO Auto-generated method stub
+		Optional<Appointment> appointement=appointmentDao.findById(appId);
+		if(appointement==null) {
+			
+			throw new AppointmentException("Appointment does not exists");
+		}
+		appointement.get().setApproved(true);
+			
+		return "Appointment Approved";
+	}	 
 
 	}
 	
