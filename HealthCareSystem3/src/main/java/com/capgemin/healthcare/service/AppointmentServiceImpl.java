@@ -89,6 +89,14 @@ public  class AppointmentServiceImpl implements AppointmentService
 	  appointmentDao.deleteById(AppointmentId); // TODO Auto-generated method stub
 	  
 	  }
+	  
+	  /***************************************************************************************************
+	 * Method       getAllCenters
+	 * Description  To get all the centers inserted in the database
+	 * 
+	 * Created By    Shreyanka Agarwal
+	 * Created Date   10-MAY-2020
+	 *****************************************************************************************************/
 
 
 	@Override
@@ -97,11 +105,30 @@ public  class AppointmentServiceImpl implements AppointmentService
 		return diagnosticCenterDao.findAll();
 	}
 	
+	 /***************************************************************************************************
+	 * Method       getAllTests
+	 * Description  To get all the tests inserted in the database
+	 * 
+	 * Created By    Shreyanka Agarwal
+	 * Created Date   10-MAY-2020
+	 *****************************************************************************************************/
+
+
+	
 	@Override
 	public List<Test> getAllTests() {
 		// TODO Auto-generated method stub
 		return testDao.findAll();
 	}
+	
+	 /***************************************************************************************************
+	 * Method       approveAppointment
+	 * Description  
+	 * 
+	 * Created By    Shreyanka Agarwal
+	 * Created Date   10-MAY-2020
+	 *****************************************************************************************************/
+
 
 
 	@Override
